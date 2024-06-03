@@ -26,7 +26,7 @@ class TileView extends StatelessWidget {
               ImageView(imageUrl: article.imageUrl),
               TitleText(title: article.title),
               const Padding(padding: EdgeInsets.only(top:10)),
-              DescriptionText(description: article.description)
+              /*DescriptionText(description: article.description)*/
             ],
           )
       ),

@@ -17,40 +17,34 @@ class _HomeControllerState extends State<HomeController> {
         url: "https://dwh.lequipe.fr/api/edito/rss?path=/", name: "L'Equipe"),
     RssType(
         url: "https://www.radiofrance.fr/francemusique/rss",
-        name: "France Musique"),
+        name: "Musique"),
     RssType(url: "https://www.jeuxvideo.com/rss/rss.xml", name: "Gaming"),
   ];
 
-/*  ThemeMode _themeMode = ThemeMode.system;
-
-  void _toggleTheme() {
-    setState(() {
-      if (_themeMode == ThemeMode.light) {
-        _themeMode = ThemeMode.dark;
-      } else {
-        _themeMode = ThemeMode.light;
-      }// Debug print
-    });
-  }*/
+  bool _isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+
         length: types.length,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Mes flux RSS',
-                style: TextStyle(color: Colors.white)),
-            /*actions: [
-              IconButton(
-                icon: Icon(
-                  _themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode,
-                ),
-                onPressed: _toggleTheme,
-              ),
-            ],*/
+            title: const Center(
+              child: Text('Mes flux RSS',
+                  style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w800, color: Colors.black, fontSize: 30)),
+            ),
+            actions: [
+              /*IconButton(
+                icon: Icon(_isDarkMode ? Icons.lightbulb_outline : Icons.lightbulb),
+                onPressed: () {
+                  setState(() {
+                    _isDarkMode = !_isDarkMode;
+                  });
+                },
+              ),*/
+            ],
             bottom: TabBar(
-              isScrollable: true,
               tabs: types.map((type) => FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Tab(text: type.name)))
@@ -59,16 +53,28 @@ class _HomeControllerState extends State<HomeController> {
               unselectedLabelColor: Colors.black,
               unselectedLabelStyle: const TextStyle(fontSize: 12.0),
               labelStyle:
-                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  const TextStyle(fontFamily: 'Montserrat', fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-            backgroundColor: Colors.deepOrangeAccent,
+            backgroundColor: Colors.deepOrange.withOpacity(0.5),
           ),
           body: TabBarView(
             children:
                 types.map((type) => FeedController(url: type.url)).toList(),
           ),
-
         )
       );
   }
+
+
+  Widget buildModeToggle() {
+    return IconButton(
+      icon: Icon(_isDarkMode ? Icons.lightbulb_outline : Icons.lightbulb),
+      onPressed: () {
+        setState(() {
+          _isDarkMode = !_isDarkMode;
+        });
+      },
+    );
+  }
+
 }

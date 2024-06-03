@@ -13,34 +13,41 @@ class DetailController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-        backgroundColor: Colors.grey[200],
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Padd(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TitleText(title: article.title),
-              ),
-              const Padd(),
-              ImageView(imageUrl: article.imageUrl),
-              const Padd(),
-              const Divider(),
-              const Padd(),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: DescriptionText(description: article.description),
-              ),
-              const Padd(),
-              ElevatedButton(
-                  onPressed: handleToWeb,
-                  child: const Text("Vers l'article complet",style: TextStyle(color: Colors.orange)))
-            ],
-          )
-        ),
+      appBar: AppBar(
+
+      ),
+     /*   backgroundColor: Colors.grey[200],*/
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TitleText(title: article.title),
+            ),
+            const Padd(),
+            ImageView(imageUrl: article.imageUrl),
+            const Divider(),
+            const Padd(),
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: DescriptionText(description: article.description),
+            ),
+            const Padd(),
+            ElevatedButton(
+                onPressed: handleToWeb,
+                style: ElevatedButton.styleFrom(
+
+                  elevation: 10,
+                  backgroundColor: Colors.grey.withOpacity(0.3),
+
+                ),
+                child: const Text("Vers l'article complet",style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w800,color: Colors.red, fontSize: 20),
+
+                ),
+            ),
+          ],
+        )
       )
     );
 

@@ -1,5 +1,3 @@
-
-
 import 'package:webfeed/domain/rss_item.dart';
 
 class Article {

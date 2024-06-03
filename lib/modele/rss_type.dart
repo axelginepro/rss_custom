@@ -1,5 +1,3 @@
-
-
 class RssType {
 
   String url;

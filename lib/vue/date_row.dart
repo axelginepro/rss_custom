@@ -15,6 +15,7 @@ class DateRow extends StatelessWidget {
         Text(
             DateParser().readableDate(date),
             style: const TextStyle(
+              fontFamily: 'Montserrat',
               color: Colors.red,
               fontStyle: FontStyle.italic,
               fontSize: 15,
