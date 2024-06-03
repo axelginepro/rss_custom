@@ -5,3 +5,5 @@
 *.mm linguist-vendored
 *.kt linguist-vendored
 *.swift linguist-vendored
+*.cmake linguist-vendored
+CMakeLists.txt linguist-vendored
