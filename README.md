@@ -1,4 +1,4 @@
-Rss Custom
+Rss Custom Flutter
 
 Udemy Project
 
